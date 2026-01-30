@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ग्राम गोदनी बसाही - बहराइच, उत्तर प्रदेश</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-brown: #8B4513;
+            --wheat-gold: #DAA520;
+            --village-green: #2F4F2F;
+            --clay-orange: #E07A5F;
+            --sky-blue: #87CEEB;
+            --cream: #FFF8DC;
+            --terracotta: #D4745E;
+            --deep-green: #1A4D2E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #FAEBD7 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(218, 165, 32, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(47, 79, 47, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--earth-brown) 0%, var(--deep-green) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        h1 {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 1;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: fadeIn 1.5s ease-out;
+            color: #FFF8DC;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 0.95; }
+        }
+
+        nav {
+            background: rgba(255, 248, 220, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--earth-brown);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--wheat-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            background: var(--wheat-gold);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--wheat-gold), var(--clay-orange), var(--village-green));
+        }
+
+        h2 {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            color: var(--earth-brown);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--wheat-gold), transparent);
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery {
+            background: linear-gradient(135deg, var(--earth-brown) 0%, var(--deep-green) 100%);
+        }
+
+        .photo-gallery h2 {
+            color: var(--wheat-gold);
+            text-align: center;
+        }
+
+        .photo-gallery h2::after {
+            background: linear-gradient(90deg, transparent, var(--wheat-gold), transparent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-family: 'Tiro Devanagari Hindi', serif;
+        }
+
+        .slide-dots {
+            text-align: center;
+            padding: 1.5rem 0 0 0;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: var(--wheat-gold);
+            transform: scale(1.3);
+        }
+
+        .dot:hover {
+            background-color: rgba(255,255,255,0.6);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, var(--cream) 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--wheat-gold);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(218, 165, 32, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border-left-color: var(--clay-orange);
+        }
+
+        .info-card h3 {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            color: var(--village-green);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            font-size: 1rem;
+        }
+
+        /* Highlights */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .highlight-item:hover {
+            background: white;
+            border-color: var(--wheat-gold);
+            transform: scale(1.05);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item h3 {
+            color: var(--earth-brown);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            background: linear-gradient(135deg, var(--village-green) 0%, var(--deep-green) 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .contact-info h3 {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--wheat-gold);
+        }
+
+        .contact-info p {
+            color: rgba(255,255,255,0.9);
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            background: var(--earth-brown);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            section {
+                padding: 2rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .slide img {
+                height: 300px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ग्राम गोदनी बसाही</h1>
+        <p class="subtitle">बहराइच जिला, उत्तर प्रदेश</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">परिचय</a></li>
+            <li><a href="#gallery">फोटो गॅलरी</a></li>
+            <li><a href="#info">गाँव की जानकारी</a></li>
+            <li><a href="#facilities">सुविधाएं</a></li>
+            <li><a href="#notable-people">मुख्य हस्तियां</a></li>
+            <li><a href="#culture">संस्कृति</a></li>
+            <li><a href="#development">विकास</a></li>
+            <li><a href="#contact">संपर्क</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>गाँव का परिचय</h2>
+            <p>गोदनी बसाही उत्तर प्रदेश के बहराइच जिले में स्थित एक सुंदर और समृद्ध गाँव है। यह गाँव अपनी सांस्कृतिक विरासत, सामाजिक सद्भाव और कृषि परंपरा के लिए जाना जाता है। यहाँ की मिट्टी उपजाऊ है और गाँव के लोग मुख्य रूप से कृषि पर निर्भर हैं।</p>
+            <p>गोदनी बसाही में विभिन्न समुदायों के लोग मिल-जुलकर रहते हैं और एक-दूसरे के सुख-दुख में साथ खड़े रहते हैं। गाँव की पहचान इसकी सादगी, मेहनत और परंपरागत मूल्यों में है।</p>
+        </section>
+
+        <section id="gallery" class="photo-gallery">
+            <h2>गाँव की झलकियाँ</h2>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="village-child.jpeg" alt="गोदनी बसाही का बच्चा">
+                    <div class="slide-caption">गाँव का प्यारा बच्चा - हमारे गाँव का भविष्य</div>
+                </div>
+                <div class="slide">
+                    <img src="village-road.jpeg" alt="गोदनी बसाही की सड़क">
+                    <div class="slide-caption">गाँव की सड़क - शांति और सुकून का नजारा</div>
+                </div>
+                <div class="slide">
+                    <img src="village-fields.jpeg" alt="गोदनी बसाही के खेत">
+                    <div class="slide-caption">हरे-भरे खेत - हमारी समृद्धि की पहचान</div>
+                </div>
+            </div>
+            <div class="slide-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <section id="info">
+            <h2>गाँव की मुख्य जानकारी</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📍 स्थान</h3>
+                    <p><strong>जिला:</strong> बहराइच</p>
+                    <p><strong>राज्य:</strong> उत्तर प्रदेश</p>
+                    <p><strong>देश:</strong> भारत</p>
+                </div>
+                <div class="info-card">
+                    <h3>🌾 मुख्य व्यवसाय</h3>
+                    <p>कृषि गाँव का मुख्य व्यवसाय है। यहाँ गेहूँ, धान, गन्ना, और दालों की खेती होती है।</p>
+                </div>
+                <div class="info-card">
+                    <h3>🏘️ जनसंख्या (2011 जनगणना)</h3>
+                    <p><strong>कुल आबादी:</strong> 2,494</p>
+                    <p><strong>पुरुष:</strong> 1,279 | <strong>महिला:</strong> 1,215</p>
+                    <p><strong>बच्चे (0-6 वर्ष):</strong> 544</p>
+                    <p><strong>कुल परिवार:</strong> 490</p>
+                </div>
+                <div class="info-card">
+                    <h3>🗣️ भाषा</h3>
+                    <p>यहाँ मुख्य रूप से <strong>भोजपुरी, हिन्दी और अवधी</strong> बोली जाती है।</p>
+                    <p>ये तीनों बोलियां गाँव की सांस्कृतिक पहचान का हिस्सा हैं।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities">
+            <h2>गाँव की सुविधाएं</h2>
+            <div class="highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏫</div>
+                    <h3>शिक्षा</h3>
+                    <p>गाँव में <strong>दो प्राथमिक विद्यालय</strong> और <strong>एक जूनियर स्कूल</strong> उपलब्ध हैं।</p>
+                    <p>आस-पास उच्च शिक्षा की सुविधाएं भी मौजूद हैं।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏥</div>
+                    <h3>स्वास्थ्य</h3>
+                    <p>स्वास्थ्य केंद्र और नजदीकी अस्पताल की सुविधा।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🚰</div>
+                    <h3>पेयजल</h3>
+                    <p>हैंडपंप और नल कनेक्शन के माध्यम से स्वच्छ पेयजल की व्यवस्था।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🛣️</div>
+                    <h3>सड़क</h3>
+                    <p>गाँव मुख्य सड़क से जुड़ा हुआ है तथा यातायात की सुविधा उपलब्ध है।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">💡</div>
+                    <h3>बिजली</h3>
+                    <p>गाँव में बिजली की सुविधा उपलब्ध है।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏛️</div>
+                    <h3>धार्मिक स्थल</h3>
+                    <p>मंदिर, मस्जिद और अन्य धार्मिक स्थलों की उपस्थिति।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="notable-people">
+            <h2>गाँव के मुख्य हस्तियां</h2>
+            <p>गोदनी बसाही गाँव को अपने प्रतिभाशाली और समर्पित सपूतों पर गर्व है जो विभिन्न क्षेत्रों में अपनी सेवाएं दे रहे हैं और गाँव का नाम रोशन कर रहे हैं।</p>
+            <div class="info-grid">
+                <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
+                    <h3>🎓 आदर्श कुमार गौतम</h3>
+                    <p><strong>पद:</strong> सहायक अध्यापक</p>
+                    <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में समर्पित सेवा</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--village-green);">
+                    <h3>📚 राजीव कुमार</h3>
+                    <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
+                    <h3>📖 धर्मेंद्र कुमार</h3>
+                    <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के प्रति समर्पण</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🇮🇳 भूपेंद्र कुमार</h3>
+                    <p><strong>सेवा:</strong> भारतीय सेना</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश की सेवा में समर्पित जवान</p>
+                </div>
+            </div>
+            <div class="highlight-item" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(47, 79, 47, 0.1) 100%); padding: 2rem; border-radius: 15px;">
+                <div class="highlight-icon">⭐</div>
+                <h3>गाँव का गौरव</h3>
+                <p>ये सभी व्यक्तित्व गोदनी बसाही के गौरव हैं। इनकी उपलब्धियां और समर्पण गाँव के युवाओं के लिए प्रेरणा स्रोत हैं। शिक्षा और राष्ट्रसेवा के क्षेत्र में इनका योगदान सराहनीय है।</p>
+            </div>
+        </section>
+
+        <section id="culture">
+            <h2>सांस्कृतिक विरासत</h2>
+            <p>गोदनी बसाही की संस्कृति बेहद समृद्ध है। यहाँ के त्योहार, मेले और सामाजिक कार्यक्रम पूरे उत्साह के साथ मनाए जाते हैं। यहाँ डॉक्टर भीम राव अंबेडकर की जयंती बहुत धूमधाम से मनाई जाती है और इसके साथ ही यहाँ दुर्गा पूजा, दीपावली, ईद, मुहर्रम जैसे त्योहारों पर सभी समुदाय के लोग एक साथ मिलकर खुशियाँ मनाते हैं।</p>
+            <p>गाँव में लोकगीत, लोकनृत्य और पारंपरिक संगीत की समृद्ध परंपरा है। शादी-ब्याह और अन्य समारोहों में गाँव की महिलाएं पारंपरिक गीत गाती हैं। भोजपुरी और अवधी लोकगीत यहाँ की सांस्कृतिक धरोहर हैं।</p>
+        </section>
+
+        <section id="development">
+            <h2>विकास एवं भविष्य</h2>
+            <p>गोदनी बसाही लगातार विकास की ओर अग्रसर है। सरकारी योजनाओं जैसे स्वच्छ भारत अभियान, प्रधानमंत्री आवास योजना, और आयुष्मान भारत के तहत गाँव में कई सुधार हो रहे हैं।</p>
+            <p>गाँव के युवा शिक्षा के प्रति जागरूक हो रहे हैं और कई युवा उच्च शिक्षा प्राप्त कर रहे हैं। कृषि के आधुनिकीकरण और नई तकनीकों को अपनाने से किसानों की आय में वृद्धि हो रही है।</p>
+            <div class="highlights" style="margin-top: 2rem;">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🌱</div>
+                    <h3>कृषि विकास</h3>
+                    <p>आधुनिक तकनीक और बेहतर बीजों का उपयोग</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">👨‍🎓</div>
+                    <h3>शिक्षा</h3>
+                    <p>बच्चों और युवाओं में शिक्षा के प्रति बढ़ती जागरूकता</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🤝</div>
+                    <h3>सामाजिक सद्भाव</h3>
+                    <p>सभी समुदायों में प्रेम और भाईचारा</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>संपर्क जानकारी</h2>
+            <div class="contact-info">
+                <h3>ग्राम प्रधान</h3>
+                <p style="font-size: 1.3rem; font-weight: 600; color: var(--wheat-gold); margin-bottom: 1rem;">🏛️ श्री सूरज कुमार गौतम</p>
+                <p style="font-style: italic; margin-bottom: 2rem;">वर्तमान ग्राम प्रधान, गोदनी बसाही</p>
+                
+                <h3>गाँव से जुड़ें</h3>
+                <p>📧 ईमेल: <a href="mailto:ankitsuresh563@gmail.com" style="color: var(--wheat-gold); text-decoration: none;">ankitsuresh563@gmail.com</a></p>
+                <p>📞 ग्राम प्रधान कार्यालय: <a href="tel:6391594950" style="color: var(--wheat-gold); text-decoration: none;">6391594950</a></p>
+                <p>📍 पता: ग्राम गोदनी बसाही, पोस्ट - आलिया बुल बुल, तहसील बहराइच, जिला बहराइच, उत्तर प्रदेश</p>
+                <p style="margin-top: 1.5rem; font-style: italic;">गाँव के विकास और प्रगति के लिए सभी ग्रामवासियों का सहयोग आवश्यक है। आइए, मिलकर अपने गाँव को और भी बेहतर बनाएं।</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ग्राम गोदनी बसाही | बहराइच, उत्तर प्रदेश</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">हमारे गाँव की पहचान, हमारा गौरव</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        let slideIndex = 0;
+        let autoSlideTimer;
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            // Hide all slides
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            // Remove active from all dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            // Increment slide index
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            
+            // Show current slide and dot
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+            
+            // Change slide every 3 seconds
+            autoSlideTimer = setTimeout(showSlides, 3000);
+        }
+
+        function currentSlide(n) {
+            clearTimeout(autoSlideTimer);
+            slide
