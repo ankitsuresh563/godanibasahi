@@ -644,6 +644,9 @@
     <footer>
         <p>&copy; 2026 ग्राम गोदनी बसाही | बहराइच, उत्तर प्रदेश</p>
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">हमारे गाँव की पहचान, हमारा गौरव</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
+            <strong>नोट :</strong> इस वेबसाइट को <strong>अंकित कुमार गौतम</strong> द्वारा बनाया गया है जो वर्तमान में नेशनल इंस्टीट्यूट ऑफ टेक्नोलॉजी, भोपाल, मध्य प्रदेश में इंजीनियरिंग कर रहे हैं।
+        </p>
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
@@ -673,26 +676,3 @@
             // Show current slide and dot
             slides[slideIndex - 1].classList.add("active");
             dots[slideInde
-            
-            // Remove active from all dots
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            
-            // Increment slide index
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            
-            // Show current slide and dot
-            slides[slideIndex - 1].classList.add("active");
-            dots[slideIndex - 1].classList.add("active");
-            
-            // Change slide every 3 seconds
-            autoSlideTimer = setTimeout(showSlides, 3000);
-        }
-
-        function currentSlide(n) {
-            clearTimeout(autoSlideTimer);
-            slide
