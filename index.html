@@ -119,12 +119,80 @@
             z-index: 100;
         }
 
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: var(--wheat-gold);
+            border: none;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .menu-toggle:hover {
+            background: var(--earth-brown);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .menu-toggle:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
         nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                background: rgba(255, 248, 220, 0.98);
+                border-radius: 12px;
+                margin-top: 3rem;
+            }
+
+            nav ul.active {
+                max-height: 600px;
+                opacity: 1;
+                padding: 1rem 0;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            }
+
+            nav a {
+                display: block;
+                padding: 1rem 2rem;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+            }
+
+            nav li:last-child a {
+                border-bottom: none;
+            }
         }
 
         nav a {
@@ -457,16 +525,19 @@
     </header>
 
     <nav>
-        <ul>
-            <li><a href="#about">परिचय</a></li>
-            <li><a href="#gallery">फोटो गॅलरी</a></li>
-            <li><a href="#info">गाँव की जानकारी</a></li>
-            <li><a href="#facilities">सुविधाएं</a></li>
-            <li><a href="#notable-people">मुख्य हस्तियां</a></li>
-            <li><a href="#culture">संस्कृति</a></li>
-            <li><a href="#development">विकास</a></li>
-            <li><a href="#contact">संपर्क</a></li>
-        </ul>
+        <div class="nav-container">
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="मेन्यू टॉगल करें">☰</button>
+            <ul id="navMenu">
+                <li><a href="#about" onclick="closeMenu()">परिचय</a></li>
+                <li><a href="#gallery" onclick="closeMenu()">फोटो गॅलरी</a></li>
+                <li><a href="#info" onclick="closeMenu()">गाँव की जानकारी</a></li>
+                <li><a href="#facilities" onclick="closeMenu()">सुविधाएं</a></li>
+                <li><a href="#notable-people" onclick="closeMenu()">मुख्य हस्तियां</a></li>
+                <li><a href="#culture" onclick="closeMenu()">संस्कृति</a></li>
+                <li><a href="#development" onclick="closeMenu()">विकास</a></li>
+                <li><a href="#contact" onclick="closeMenu()">संपर्क</a></li>
+            </ul>
+        </div>
     </nav>
 
     <div class="container">
@@ -529,7 +600,6 @@
                     <div class="highlight-icon">🏫</div>
                     <h3>शिक्षा</h3>
                     <p>गाँव में <strong>दो प्राथमिक विद्यालय</strong>, <strong>एक जूनियर स्कूल</strong> और <strong>एक जूनियर हाई स्कूल</strong> उपलब्ध हैं।</p>
-                    <p>इसके साथ ही <strong>एक प्राइवेट स्कूल - मुनाकी देवी शिवनरायन अभिनव शिक्षण संस्थान</strong> भी उपलब्ध है जो शिक्षा के स्तर को निरंतर आगे की ओर बढ़ रहे हैं।</p>
                 </div>
                 <div class="highlight-item">
                     <div class="highlight-icon">🏥</div>
@@ -562,37 +632,125 @@
         <section id="notable-people">
             <h2>गाँव के मुख्य हस्तियां</h2>
             <p>गोदनी बसाही गाँव को अपने प्रतिभाशाली और समर्पित सपूतों पर गर्व है जो विभिन्न क्षेत्रों में अपनी सेवाएं दे रहे हैं और गाँव का नाम रोशन कर रहे हैं।</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--earth-brown); font-family: 'Tiro Devanagari Hindi', serif;">🎓 शिक्षा क्षेत्र में योगदान</h3>
             <div class="info-grid">
                 <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
-                    <h3>🎓 आदर्श कुमार गौतम</h3>
+                    <h3>📚 आदर्श कुमार गौतम</h3>
                     <p><strong>पद:</strong> सहायक अध्यापक</p>
                     <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
                     <p><strong>मोबाइल:</strong> <a href="tel:9839938346" style="color: var(--wheat-gold); text-decoration: none;">9839938346</a></p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में समर्पित सेवा</p>
                 </div>
-                <div class="info-card" style="border-left: 5px solid var(--village-green);">
-                    <h3>📚 राजीव कुमार</h3>
+                <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
+                    <h3>📖 राजीव कुमार</h3>
                     <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
                     <p><strong>मोबाइल:</strong> <a href="tel:8052920294" style="color: var(--wheat-gold); text-decoration: none;">8052920294</a></p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में योगदान</p>
                 </div>
-                <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
-                    <h3>📖 धर्मेंद्र कुमार</h3>
+                <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
+                    <h3>📚 धर्मेंद्र कुमार</h3>
                     <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
                     <p><strong>मोबाइल:</strong> <a href="tel:9984426880" style="color: var(--wheat-gold); text-decoration: none;">9984426880</a></p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के प्रति समर्पण</p>
                 </div>
-                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
-                    <h3>🇮🇳 भूपेन्द्र कुमार</h3>
-                    <p><strong>सेवा:</strong> भारतीय सेना</p>
-                    <p><strong>मोबाइल:</strong> <a href="tel:7800478350" style="color: var(--wheat-gold); text-decoration: none;">7800478350</a></p>
-                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश की सेवा में समर्पित जवान</p>
+                <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
+                    <h3>👨‍🏫 प्रहलाद कुमार</h3>
+                    <p><strong>पद:</strong> सहायक अध्यापक (Assistant Teacher)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
+                    <h3>👨‍🏫 विशम्भर नाथ</h3>
+                    <p><strong>पद:</strong> प्राथमिक विद्यालय शिक्षक (Teacher in Primary)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">प्राथमिक शिक्षा में योगदान</p>
                 </div>
             </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--earth-brown); font-family: 'Tiro Devanagari Hindi', serif;">🇮🇳 सैन्य सेवा में योगदान</h3>
+            <div class="info-grid">
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🛡️ शम्भू नाथ यादव</h3>
+                    <p><strong>सेवा:</strong> ITBP</p>
+                    <p><strong>मोबाइल:</strong> <a href="tel:9453141102" style="color: var(--wheat-gold); text-decoration: none;">9453141102</a></p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश की सीमाओं की रक्षा में समर्पित</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🇮🇳 मनोज यादव</h3>
+                    <p><strong>सेवा:</strong> भारतीय सेना (Army)</p>
+                    <p><strong>मोबाइल:</strong> <a href="tel:9596805735" style="color: var(--wheat-gold); text-decoration: none;">9596805735</a></p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश सेवा में समर्पित जवान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🛡️ गोविन्द यादव</h3>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
+                    <p><strong>मोबाइल:</strong> <a href="tel:9918625383" style="color: var(--wheat-gold); text-decoration: none;">9918625383</a></p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">सीमा सुरक्षा में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🇮🇳 हेमराज यादव</h3>
+                    <p><strong>सेवा:</strong> भारतीय सेना</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">राष्ट्र सेवा में समर्पित</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🇮🇳 अवधेश कुमार</h3>
+                    <p><strong>सेवा:</strong> भारतीय सेना</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश की सेवा में तत्पर</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🛡️ राज कुमार</h3>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">सीमा सुरक्षा में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🛡️ अभय चौहान</h3>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">राष्ट्र रक्षा में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🇮🇳 विजय कुमार</h3>
+                    <p><strong>सेवा:</strong> भारतीय सेना</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश सेवा में समर्पित</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🇮🇳 यमक चौहान</h3>
+                    <p><strong>सेवा:</strong> भारतीय सेना (Army)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">राष्ट्र की सेवा में तत्पर</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🛡️ सर्वजीत यादव</h3>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">सीमा सुरक्षा में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
+                    <h3>🛡️ सतेन्द्र कुमार</h3>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">सीमा सुरक्षा में योगदान</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--earth-brown); font-family: 'Tiro Devanagari Hindi', serif;">💼 सरकारी सेवा में योगदान</h3>
+            <div class="info-grid">
+                <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
+                    <h3>🏦 परमानंद</h3>
+                    <p><strong>विभाग:</strong> बैंक कर्मचारी (Bank Karmachari)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">बैंकिंग सेवा में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
+                    <h3>📮 गौरी शंकर</h3>
+                    <p><strong>विभाग:</strong> डाकघर कर्मचारी (Post Office Karmachari)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">डाक सेवा में योगदान</p>
+                </div>
+                <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
+                    <h3>🌳 संतोष कुमार</h3>
+                    <p><strong>विभाग:</strong> उद्यान विभाग, लखनऊ (Udyaan Vibhag, Lucknow)</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">उद्यान विभाग में योगदान</p>
+                </div>
+            </div>
+
             <div class="highlight-item" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(47, 79, 47, 0.1) 100%); padding: 2rem; border-radius: 15px;">
                 <div class="highlight-icon">⭐</div>
                 <h3>गाँव का गौरव</h3>
-                <p>ये सभी व्यक्तित्व गोदनी बसाही के गौरव हैं। इनकी उपलब्धियां और समर्पण गाँव के युवाओं के लिए प्रेरणा स्रोत हैं। शिक्षा और राष्ट्रसेवा के क्षेत्र में इनका योगदान सराहनीय है।</p>
+                <p>ये सभी व्यक्तित्व गोदनी बसाही के गौरव हैं। इनकी उपलब्धियां और समर्पण गाँव के युवाओं के लिए प्रेरणा स्रोत हैं। शिक्षा, राष्ट्र सेवा और सरकारी सेवाओं के क्षेत्र में इनका योगदान सराहनीय है। विशेष रूप से हमारे सैनिक भाइयों ने देश की सीमाओं की रक्षा में अपना जीवन समर्पित किया है।</p>
             </div>
         </section>
 
@@ -629,12 +787,12 @@
             <h2>संपर्क जानकारी</h2>
             <div class="contact-info">
                 <h3>ग्राम प्रधान</h3>
-                <p style="font-size: 1.3rem; font-weight: 600; color: var(--wheat-gold); margin-bottom: 1rem;">🏛️ श्री सूरज कुमार गौतम</p>
+                <p style="font-size: 1.3rem; font-weight: 600; color: var(--wheat-gold); margin-bottom: 1rem;">🏛️ सूरज कुमार गौतम</p>
                 <p style="font-style: italic; margin-bottom: 2rem;">वर्तमान ग्राम प्रधान, गोदनी बसाही</p>
                 
                 <h3>गाँव से जुड़ें</h3>
                 <p>📧 ईमेल: <a href="/cdn-cgi/l/email-protection#53323d383a2720262136203b66656013343e323a3f7d303c3e" style="color: var(--wheat-gold); text-decoration: none;"><span class="__cf_email__" data-cfemail="4a2b2421233e393f382f39227f7c790a2d272b232664292527">[email&#160;protected]</span></a></p>
-                <p>📞 ग्राम प्रधान कार्यालय: <a href="tel:6391594950" style="color: var(--wheat-gold); text-decoration: none;">6391594950</a></p>
+                <p>📞 ग्राम प्रधान कार्यालय: <a href="tel:+919839168011" style="color: var(--wheat-gold); text-decoration: none;">+91 98391 68011</a></p>
                 <p>📍 पता: ग्राम गोदनी बसाही, पोस्ट - आलिया बुल बुल, तहसील बहराइच, बहराइच, उत्तर प्रदेश</p>
                 <p style="margin-top: 1.5rem; font-style: italic;">गाँव के विकास और प्रगति के लिए सभी ग्रामवासियों का सहयोग आवश्यक है। आइए, मिलकर अपने गाँव को और भी बेहतर बनाएं।</p>
             </div>
@@ -644,12 +802,35 @@
     <footer>
         <p>&copy; 2026 ग्राम गोदनी बसाही | बहराइच, उत्तर प्रदेश</p>
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">हमारे गाँव की पहचान, हमारा गौरव</p>
-        <p style="margin-top: 1rem; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem;">
-            <strong>नोट :</strong> इस वेबसाइट को <strong>अंकित कुमार गौतम</strong> द्वारा बनाया गया है जो वर्तमान में नेशनल इंस्टीट्यूट ऑफ टेक्नोलॉजी, भोपाल, मध्य प्रदेश में इंजीनियरिंग कर रहे हैं।
-        </p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+    <script>
+        // Toggle Menu Function
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+            
+            // Change icon
+            if (menu.classList.contains('active')) {
+                toggle.innerHTML = '✕';
+            } else {
+                toggle.innerHTML = '☰';
+            }
+        }
+
+        // Close menu when clicking on a link
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            if (window.innerWidth <= 768) {
+                menu.classList.remove('active');
+                toggle.innerHTML = '☰';
+            }
+        }
+
+        // Slideshow Functions
         let slideIndex = 0;
         let autoSlideTimer;
 
@@ -657,22 +838,71 @@
             let slides = document.getElementsByClassName("slide");
             let dots = document.getElementsByClassName("dot");
             
-            // Hide all slides
             for (let i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
             }
             
-            // Remove active from all dots
             for (let i = 0; i < dots.length; i++) {
                 dots[i].classList.remove("active");
             }
             
-            // Increment slide index
             slideIndex++;
             if (slideIndex > slides.length) {
                 slideIndex = 1;
             }
             
-            // Show current slide and dot
             slides[slideIndex - 1].classList.add("active");
-            dots[slideInde
+            dots[slideIndex - 1].classList.add("active");
+            
+            autoSlideTimer = setTimeout(showSlides, 5000);
+        }
+
+        function currentSlide(n) {
+            clearTimeout(autoSlideTimer);
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slideIndex = n;
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+            
+            autoSlideTimer = setTimeout(showSlides, 5000);
+        }
+
+        // Start slideshow when page loads
+        window.addEventListener('load', () => {
+            showSlides();
+        });
+
+        // Section animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.animationPlayState = 'paused';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
