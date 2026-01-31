@@ -53,7 +53,7 @@
             text-align: center;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-            min-height: 400px;
+            min-height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -90,7 +90,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.75) 0%, rgba(47, 79, 47, 0.75) 100%);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.7) 0%, rgba(47, 79, 47, 0.7) 100%);
             z-index: 1;
         }
 
@@ -328,25 +328,7 @@
 
         /* Photo Gallery */
         .photo-gallery {
-            background: linear-gradient(135deg, #8B4513 0%, #2F4F2F 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .photo-gallery::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(47, 79, 47, 0.9) 100%);
-            z-index: 0;
-        }
-
-        .photo-gallery > * {
-            position: relative;
-            z-index: 1;
+            background: linear-gradient(135deg, var(--earth-brown) 0%, var(--deep-green) 100%);
         }
 
         .photo-gallery h2 {
@@ -573,13 +555,13 @@
     <header>
         <!-- Background Slideshow -->
         <div class="header-slide active">
-            <img src="village-road.jpeg" alt="गोदनी बसाही के हरे-भरे खेत">
+            <img src="village-road.jpeg" alt="गोदनी बसाही">
         </div>
         <div class="header-slide">
-            <img src="village-sign.jpeg" alt="गोदनी बसाही का स्वागत बोर्ड">
+            <img src="village-sign.jpeg" alt="गोदनी बसाही">
         </div>
         <div class="header-slide">
-            <img src="village-child.jpeg" alt="गोदनी बसाही का बच्चा">
+            <img src="village-child.jpeg" alt="गोदनी बसाही">
         </div>
         
         <!-- Header Text -->
@@ -614,22 +596,17 @@
             <h2>गाँव की झलकियाँ</h2>
             <div class="slideshow-container">
                 <div class="slide active">
-                    <img src="village-road.jpeg" alt="गोदनी बसाही के हरे-भरे खेत">
-                    <div class="slide-caption">हरे-भरे खेत - हमारी समृद्धि की पहचान</div>
-                </div>
-                <div class="slide">
-                    <img src="village-sign.jpeg" alt="गोदनी बसाही का स्वागत बोर्ड">
-                    <div class="slide-caption">गोदनी बसाही - गाँव की पहचान</div>
-                </div>
-                <div class="slide">
                     <img src="village-child.jpeg" alt="गोदनी बसाही का बच्चा">
                     <div class="slide-caption">गाँव का भविष्य - हमारे प्यारे बच्चे</div>
+                </div>
+                <div class="slide">
+                    <img src="village-road.jpeg" alt="गोदनी बसाही के हरे-भरे खेत">
+                    <div class="slide-caption">हरे-भरे खेत - हमारी समृद्धि की पहचान</div>
                 </div>
             </div>
             <div class="slide-dots">
                 <span class="dot active" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </section>
 
@@ -877,25 +854,6 @@
 
 
     <script>
-        // Header Background Slideshow
-        let headerSlideIndex = 0;
-        
-        function showHeaderSlides() {
-            let headerSlides = document.getElementsByClassName("header-slide");
-            
-            for (let i = 0; i < headerSlides.length; i++) {
-                headerSlides[i].classList.remove("active");
-            }
-            
-            headerSlideIndex++;
-            if (headerSlideIndex > headerSlides.length) {
-                headerSlideIndex = 1;
-            }
-            
-            headerSlides[headerSlideIndex - 1].classList.add("active");
-            setTimeout(showHeaderSlides, 4000); // Change image every 4 seconds
-        }
-
         // Toggle Menu Function
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
@@ -918,6 +876,25 @@
                 menu.classList.remove('active');
                 toggle.innerHTML = '☰';
             }
+        }
+
+        // Header Background Slideshow
+        let headerSlideIndex = 0;
+        
+        function showHeaderSlides() {
+            let headerSlides = document.getElementsByClassName("header-slide");
+            
+            for (let i = 0; i < headerSlides.length; i++) {
+                headerSlides[i].classList.remove("active");
+            }
+            
+            headerSlideIndex++;
+            if (headerSlideIndex > headerSlides.length) {
+                headerSlideIndex = 1;
+            }
+            
+            headerSlides[headerSlideIndex - 1].classList.add("active");
+            setTimeout(showHeaderSlides, 4000); // Change image every 4 seconds
         }
 
         // Slideshow Functions
@@ -997,3 +974,4 @@
     </script>
 </body>
 </html>
+
