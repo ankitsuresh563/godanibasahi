@@ -47,25 +47,58 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--earth-brown) 0%, var(--deep-green) 100%);
+            position: relative;
             color: white;
             padding: 3rem 2rem;
             text-align: center;
-            position: relative;
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        header::before {
+        /* Header Background Slideshow */
+        .header-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 0;
+        }
+
+        .header-slide.active {
+            opacity: 1;
+        }
+
+        .header-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Dark overlay for better text visibility */
+        header::after {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 20s ease-in-out infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.75) 0%, rgba(47, 79, 47, 0.75) 100%);
+            z-index: 1;
+        }
+
+        /* Ensure text is above the overlay */
+        header h1,
+        header .subtitle {
+            position: relative;
+            z-index: 2;
         }
 
         @keyframes float {
@@ -295,7 +328,25 @@
 
         /* Photo Gallery */
         .photo-gallery {
-            background: linear-gradient(135deg, var(--earth-brown) 0%, var(--deep-green) 100%);
+            background: linear-gradient(135deg, #8B4513 0%, #2F4F2F 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(47, 79, 47, 0.9) 100%);
+            z-index: 0;
+        }
+
+        .photo-gallery > * {
+            position: relative;
+            z-index: 1;
         }
 
         .photo-gallery h2 {
@@ -520,6 +571,18 @@
 </head>
 <body>
     <header>
+        <!-- Background Slideshow -->
+        <div class="header-slide active">
+            <img src="village-road.jpeg" alt="गोदनी बसाही के हरे-भरे खेत">
+        </div>
+        <div class="header-slide">
+            <img src="village-sign.jpeg" alt="गोदनी बसाही का स्वागत बोर्ड">
+        </div>
+        <div class="header-slide">
+            <img src="village-child.jpeg" alt="गोदनी बसाही का बच्चा">
+        </div>
+        
+        <!-- Header Text -->
         <h1>ग्राम गोदनी बसाही</h1>
         <p class="subtitle">बहराइच, उत्तर प्रदेश</p>
     </header>
@@ -551,17 +614,22 @@
             <h2>गाँव की झलकियाँ</h2>
             <div class="slideshow-container">
                 <div class="slide active">
-                    <img src="village-child.jpeg" alt="गोदनी बसाही का बच्चा">
-                    <div class="slide-caption">गाँव का भविष्य - हमारे प्यारे बच्चे</div>
-                </div>
-                <div class="slide">
                     <img src="village-road.jpeg" alt="गोदनी बसाही के हरे-भरे खेत">
                     <div class="slide-caption">हरे-भरे खेत - हमारी समृद्धि की पहचान</div>
+                </div>
+                <div class="slide">
+                    <img src="village-sign.jpeg" alt="गोदनी बसाही का स्वागत बोर्ड">
+                    <div class="slide-caption">गोदनी बसाही - गाँव की पहचान</div>
+                </div>
+                <div class="slide">
+                    <img src="village-child.jpeg" alt="गोदनी बसाही का बच्चा">
+                    <div class="slide-caption">गाँव का भविष्य - हमारे प्यारे बच्चे</div>
                 </div>
             </div>
             <div class="slide-dots">
                 <span class="dot active" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </section>
 
@@ -569,24 +637,24 @@
             <h2>गाँव की मुख्य जानकारी</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <h3> स्थान</h3>
+                    <h3>📍 स्थान</h3>
                     <p><strong>जिला:</strong> बहराइच</p>
                     <p><strong>राज्य:</strong> उत्तर प्रदेश</p>
                     <p><strong>देश:</strong> भारत</p>
                 </div>
                 <div class="info-card">
-                    <h3> मुख्य व्यवसाय</h3>
+                    <h3>🌾 मुख्य व्यवसाय</h3>
                     <p>कृषि गाँव का मुख्य व्यवसाय है। यहाँ गेहूँ, धान, गन्ना, और दालों की खेती होती है।</p>
                 </div>
                 <div class="info-card">
-                    <h3> जनसंख्या (2011 जनगणना)</h3>
+                    <h3>🏘️ जनसंख्या (2011 जनगणना)</h3>
                     <p><strong>कुल आबादी:</strong> 2,494</p>
                     <p><strong>पुरुष:</strong> 1,279 | <strong>महिला:</strong> 1,215</p>
                     <p><strong>बच्चे (0-6 वर्ष):</strong> 544</p>
                     <p><strong>कुल परिवार:</strong> 490</p>
                 </div>
                 <div class="info-card">
-                    <h3> भाषा</h3>
+                    <h3>🗣️ भाषा</h3>
                     <p>यहाँ मुख्य रूप से <strong>भोजपुरी, हिन्दी और अवधी</strong> बोली जाती है।</p>
                     <p>ये तीनों बोलियां गाँव की सांस्कृतिक पहचान का हिस्सा हैं।</p>
                 </div>
@@ -597,32 +665,32 @@
             <h2>गाँव की सुविधाएं</h2>
             <div class="highlights">
                 <div class="highlight-item">
-                    <div class="highlight-icon"></div>
+                    <div class="highlight-icon">🏫</div>
                     <h3>शिक्षा</h3>
                     <p>गाँव में <strong>दो प्राथमिक विद्यालय</strong>, <strong>एक जूनियर स्कूल</strong> और <strong>एक जूनियर हाई स्कूल</strong> उपलब्ध हैं।</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon"></div>
+                    <div class="highlight-icon">🏥</div>
                     <h3>स्वास्थ्य</h3>
                     <p>रिसिया सामुदायिक स्वास्थ्य केंद्र और अन्य नजदीकी अस्पताल की सुविधा।</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon"></div>
+                    <div class="highlight-icon">🚰</div>
                     <h3>पेयजल</h3>
                     <p>हैंडपंप और नल कनेक्शन के माध्यम से स्वच्छ पेयजल की व्यवस्था।</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon"></div>
+                    <div class="highlight-icon">🛣️</div>
                     <h3>सड़क</h3>
                     <p>गाँव मुख्य सड़क से जुड़ा हुआ है तथा यातायात की सुविधा उपलब्ध है।</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon"> </div>
+                    <div class="highlight-icon">💡</div>
                     <h3>बिजली</h3>
                     <p>गाँव में बिजली की सुविधा उपलब्ध है।</p>
                 </div>
                 <div class="highlight-item">
-                    <div class="highlight-icon"></div>
+                    <div class="highlight-icon">🏛️</div>
                     <h3>धार्मिक स्थल</h3>
                     <p>मंदिर, अंबेडकर पार्क और अन्य धार्मिक स्थलों की उपस्थिति।</p>
                 </div>
@@ -637,14 +705,14 @@
             <div class="info-grid">
                 <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
                     <h3>आदर्श कुमार गौतम</h3>
-                    <p><strong>पद:</strong> सहायक अध्यापक( AssistantTeacher in Primary)</p>
+                    <p><strong>पद:</strong> सहायक अध्यापक</p>
                     <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
                     <p><strong>मोबाइल:</strong> <a href="tel:9839938346" style="color: var(--wheat-gold); text-decoration: none;">9839938346</a></p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में समर्पित सेवा</p>
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
                     <h3>राजीव कुमार</h3>
-                    <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग (Teacher in Primary) </p>
+                    <p><strong>विभाग:</strong> उत्तर प्रदेश शिक्षा विभाग</p>
                     <p><strong>मोबाइल:</strong> <a href="tel:8052920294" style="color: var(--wheat-gold); text-decoration: none;">8052920294</a></p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में योगदान</p>
                 </div>
@@ -656,7 +724,7 @@
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
                     <h3>प्रहलाद कुमार</h3>
-                    <p><strong>पद:</strong> सहायक अध्यापक (Assistant Teacher in Primary)</p>
+                    <p><strong>पद:</strong> सहायक अध्यापक (Assistant Teacher)</p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">शिक्षा के क्षेत्र में योगदान</p>
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--wheat-gold);">
@@ -669,17 +737,11 @@
             <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--earth-brown); font-family: 'Tiro Devanagari Hindi', serif;">🇮🇳 सैन्य सेवा में योगदान</h3>
             <div class="info-grid">
                 <div class="info-card" style="border-left: 5px solid var(--deep-green);">
-                    <h3>भूपेंद्र कुमार</h3>
-                    <p><strong>सेवा:</strong> भारतीय सेना (Army) </p>
-                    <p><strong>मोबाइल:</strong> <a href="tel:78004783502" style="color: var(--wheat-gold); text-decoration: none;">7800478350 </a></p>
-                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश सेवा में समर्पित जवान </p>
-                </div> 
-                <div class="info-card" style="border-left: 5px solid var(--deep-green);">
-    <h3>शम्भू नाथ यादव</h3>
-    <p><strong>सेवा:</strong> ITBP</p>
-    <p><strong>मोबाइल:</strong> <a href="tel:9453141102" style="color: var(--wheat-gold); text-decoration: none;">9453141102</a></p>
-    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश की सीमाओं की रक्षा में समर्पित</p>
-</div>
+                    <h3>शम्भू नाथ यादव</h3>
+                    <p><strong>सेवा:</strong> ITBP</p>
+                    <p><strong>मोबाइल:</strong> <a href="tel:9453141102" style="color: var(--wheat-gold); text-decoration: none;">9453141102</a></p>
+                    <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश की सीमाओं की रक्षा में समर्पित</p>
+                </div>
                 <div class="info-card" style="border-left: 5px solid var(--deep-green);">
                     <h3>मनोज यादव</h3>
                     <p><strong>सेवा:</strong> भारतीय सेना (Army)</p>
@@ -714,7 +776,7 @@
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--deep-green);">
                     <h3>विजय कुमार</h3>
-                    <p><strong>सेवा:</strong> भारतीय सेना (Army) </p>
+                    <p><strong>सेवा:</strong> भारतीय सेना</p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">देश सेवा में समर्पित</p>
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--deep-green);">
@@ -724,12 +786,12 @@
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--deep-green);">
                     <h3>सर्वजीत यादव</h3>
-                    <p><strong>सेवा:</strong> सशस्त्र सीमा बल (SSB )</p>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">सीमा सुरक्षा में योगदान</p>
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--deep-green);">
                     <h3>सतेन्द्र कुमार</h3>
-                    <p><strong>सेवा:</strong> सशस्त्र सीमा बल (SSB ) </p>
+                    <p><strong>सेवा:</strong> SSB (सशस्त्र सीमा बल)</p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">सीमा सुरक्षा में योगदान</p>
                 </div>
             </div>
@@ -738,12 +800,12 @@
             <div class="info-grid">
                 <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
                     <h3>परमानंद</h3>
-                    <p><strong>विभाग:</strong> बैंक कर्मचारी (Bank Employee)</p>
+                    <p><strong>विभाग:</strong> बैंक कर्मचारी (Bank Karmachari)</p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">बैंकिंग सेवा में योगदान</p>
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
                     <h3>गौरी शंकर यादव</h3>
-                    <p><strong>विभाग:</strong> डाकघर कर्मचारी (Post Office Employee)</p>
+                    <p><strong>विभाग:</strong> डाकघर कर्मचारी (Post Office Karmachari)</p>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--earth-brown);">डाक सेवा में योगदान</p>
                 </div>
                 <div class="info-card" style="border-left: 5px solid var(--clay-orange);">
@@ -755,7 +817,7 @@
 
             <div class="highlight-item" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(47, 79, 47, 0.1) 100%); padding: 2rem; border-radius: 15px;">
                 <div class="highlight-icon">⭐</div>
-                <h3>गाँव के गौरव</h3>
+                <h3>गाँव का गौरव</h3>
                 <p>ये सभी व्यक्तित्व गोदनी बसाही के गौरव हैं। इनकी उपलब्धियां और समर्पण गाँव के युवाओं के लिए प्रेरणा स्रोत हैं। शिक्षा, राष्ट्र सेवा और सरकारी सेवाओं के क्षेत्र में इनका योगदान सराहनीय है। विशेष रूप से हमारे सैनिक भाइयों ने देश की सीमाओं की रक्षा में अपना जीवन समर्पित किया है।</p>
             </div>
         </section>
@@ -815,6 +877,25 @@
 
 
     <script>
+        // Header Background Slideshow
+        let headerSlideIndex = 0;
+        
+        function showHeaderSlides() {
+            let headerSlides = document.getElementsByClassName("header-slide");
+            
+            for (let i = 0; i < headerSlides.length; i++) {
+                headerSlides[i].classList.remove("active");
+            }
+            
+            headerSlideIndex++;
+            if (headerSlideIndex > headerSlides.length) {
+                headerSlideIndex = 1;
+            }
+            
+            headerSlides[headerSlideIndex - 1].classList.add("active");
+            setTimeout(showHeaderSlides, 4000); // Change image every 4 seconds
+        }
+
         // Toggle Menu Function
         function toggleMenu() {
             const menu = document.getElementById('navMenu');
@@ -886,9 +967,10 @@
             autoSlideTimer = setTimeout(showSlides, 5000);
         }
 
-        // Start slideshow when page loads
+        // Start slideshows when page loads
         window.addEventListener('load', () => {
-            showSlides();
+            showHeaderSlides(); // Start header slideshow
+            showSlides(); // Start gallery slideshow
         });
 
         // Section animations on scroll
