@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -512,6 +512,32 @@
             margin: 0.5rem 0;
         }
 
+        /* Download Button Style */
+        .download-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--wheat-gold), var(--earth-brown));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--earth-brown), var(--wheat-gold));
+        }
+
+        .download-btn::before {
+            content: '📄 ';
+            margin-right: 0.5rem;
+        }
+
         footer {
             background: var(--earth-brown);
             color: white;
@@ -587,6 +613,7 @@
                 <li><a href="#gallery" onclick="closeMenu()">फोटो गैलरी </a></li>
                 <li><a href="#facilities" onclick="closeMenu()">सुविधाएं</a></li>
                  <li><a href="#online-services" onclick="closeMenu()">ऑनलाइन सुविधाएं</a></li>
+                <li><a href="#downloads" onclick="closeMenu()">📥 डाउनलोड</a></li>
                 <li><a href="#culture" onclick="closeMenu()">संस्कृति</a></li>
                 <li><a href="#development" onclick="closeMenu()">विकास</a></li>
                  <li><a href="#notable-people" onclick="closeMenu()"> गाँव के मुख्य हस्तियां</a></li>
@@ -768,6 +795,92 @@
                 </h4>
                 <p style="font-size: 1rem; color: #555; line-height: 1.7;">
                     ये सभी सेवाएं उत्तर प्रदेश सरकार द्वारा प्रदान की गई हैं। किसी भी समस्या के लिए संबंधित विभाग से संपर्क करें। गाँव के युवाओं से अनुरोध है कि वे इन सुविधाओं का लाभ उठाएं और अपने परिवार के सदस्यों को भी जागरूक करें।
+                </p>
+            </div>
+        </section>
+
+        <!-- DOWNLOADS SECTION -->
+        <section id="downloads" style="
+            background: linear-gradient(135deg, #FFF8DC, #FAEBD7);
+            padding: 3rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        ">
+            <h2 style="color: #8B4513; text-align: center; margin-bottom: 2rem;">
+                📥 महत्वपूर्ण दस्तावेज़ डाउनलोड करें
+            </h2>
+            <p style="text-align: center; font-size: 1.15rem; color: #555; margin-bottom: 3rem;">
+                गाँव के महत्वपूर्ण दस्तावेज़ यहाँ से डाउनलोड करें
+            </p>
+
+            <div class="info-grid" style="gap: 2rem;">
+                <!-- Voter List 2003 -->
+                <div class="info-card" style="
+                    border-left: 6px solid #8B4513;
+                    background: linear-gradient(135deg, #ffffff, #fff9f0);
+                    text-align: center;
+                ">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📋</div>
+                    <h3 style="color: #8B4513; font-size: 1.6rem; margin-bottom: 1rem;">
+                        मतदाता सूची 2003
+                    </h3>
+                    <p style="font-size: 1.05rem; color: #555; margin-bottom: 1.5rem;">
+                        गोदनी बसाही की मतदाता सूची वर्ष 2003
+                    </p>
+                    <a 
+                        href="downloads/matdata-suchi-2003.pdf" 
+                        download
+                        class="download-btn"
+                    >
+                        डाउनलोड करें
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        PDF फॉर्मेट में उपलब्ध
+                    </p>
+                </div>
+
+                <!-- SIR 2026 Draft -->
+                <div class="info-card" style="
+                    border-left: 6px solid #2F4F2F;
+                    background: linear-gradient(135deg, #ffffff, #f0f9f0);
+                    text-align: center;
+                ">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📄</div>
+                    <h3 style="color: #1A4D2E; font-size: 1.6rem; margin-bottom: 1rem;">
+                        SIR 2026 Draft सूची
+                    </h3>
+                    <p style="font-size: 1.05rem; color: #555; margin-bottom: 1.5rem;">
+                        गोदनी बसाही की SIR 2026 Draft सूची
+                    </p>
+                    <a 
+                        href="downloads/sir-2026-draft.pdf" 
+                        download
+                        class="download-btn"
+                        style="background: linear-gradient(135deg, #2F4F2F, #1A4D2E);"
+                    >
+                        डाउनलोड करें
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        PDF फॉर्मेट में उपलब्ध
+                    </p>
+                </div>
+            </div>
+
+            <div style="
+                margin-top: 2.5rem;
+                padding: 1.5rem;
+                background: rgba(139, 69, 19, 0.05);
+                border-radius: 12px;
+                border-left: 4px solid #8B4513;
+            ">
+                <h4 style="color: #8B4513; margin-bottom: 0.8rem; font-size: 1.2rem;">
+                    ℹ️ डाउनलोड के बारे में
+                </h4>
+                <p style="font-size: 1rem; color: #555; line-height: 1.7;">
+                    ये दस्तावेज़ गाँव के सभी निवासियों के लिए उपलब्ध हैं। डाउनलोड बटन पर क्लिक करने से फ़ाइल स्वतः डाउनलोड हो जाएगी। 
+                    PDF फ़ाइल को खोलने के लिए आपके डिवाइस में PDF रीडर होना आवश्यक है। 
+                    किसी भी समस्या के लिए ग्राम प्रधान कार्यालय से संपर्क करें।
                 </p>
             </div>
         </section>
