@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>गाँव की सुविधाएं - ग्राम गोदनी बसाही</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-brown: #8B4513;
+            --wheat-gold: #DAA520;
+            --village-green: #2F4F2F;
+            --clay-orange: #E07A5F;
+            --sky-blue: #87CEEB;
+            --cream: #FFF8DC;
+            --terracotta: #D4745E;
+            --deep-green: #1A4D2E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #FAEBD7 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(218, 165, 32, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(47, 79, 47, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--earth-brown) 0%, var(--village-green) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-family: 'Hind', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: rgba(255, 248, 220, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: var(--wheat-gold);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .back-button:hover {
+            background: var(--earth-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Hind', sans-serif;
+            color: var(--earth-brown);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: var(--village-green);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(47, 79, 47, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--wheat-gold);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--village-green) 0%, var(--earth-brown) 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>गाँव की सुविधाएं</h1>
+        <p class="subtitle">गोदनी बसाही में उपलब्ध सुविधाएं</p>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="back-button">🏠 मुख्य पृष्ठ पर वापस जाएं</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section>
+            <h2>गाँव की सुविधाएं</h2>
+            <div class="highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">📚</div>
+                    <h3>शिक्षा</h3>
+                    <p>गाँव में <strong>दो प्राथमिक विद्यालय</strong>, <strong>एक जूनियर स्कूल</strong> और <strong>एक जूनियर हाई स्कूल</strong> उपलब्ध हैं।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏥</div>
+                    <h3>स्वास्थ्य</h3>
+                    <p>रिसिया सामुदायिक स्वास्थ्य केंद्र और अन्य नजदीकी अस्पताल की सुविधा।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">💧</div>
+                    <h3>पेयजल</h3>
+                    <p>हैंडपंप और नल कनेक्शन के माध्यम से स्वच्छ पेयजल की व्यवस्था।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🛣️</div>
+                    <h3>सड़क</h3>
+                    <p>गाँव मुख्य सड़क से जुड़ा हुआ है तथा यातायात की सुविधा उपलब्ध है।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">💡</div>
+                    <h3>बिजली</h3>
+                    <p>गाँव में बिजली की सुविधा उपलब्ध है।</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">🕉️</div>
+                    <h3>धार्मिक स्थल</h3>
+                    <p>मंदिर, अंबेडकर पार्क और अन्य धार्मिक स्थलों की उपस्थिति।</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ग्राम गोदनी बसाही | बहराइच, उत्तर प्रदेश</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">हमारे गाँव की पहचान, हमारा गौरव</p>
+    </footer>
+</body>
+</html>
