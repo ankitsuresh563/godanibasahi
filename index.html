@@ -1092,43 +1092,48 @@
     </footer>
 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Toggle Menu Function - Simplified
-        function toggleMenu() {
-            var menu = document.getElementById('navMenu');
-            var toggle = document.querySelector('.menu-toggle');
-            
-            if (menu.classList.contains('active')) {
-                menu.classList.remove('active');
-                toggle.innerHTML = '☰';
-            } else {
-                menu.classList.add('active');
-                toggle.innerHTML = '✕';
-            }
-        }
-
-        // Close menu when clicking on a link
-        function closeMenu() {
-            var menu = document.getElementById('navMenu');
-            var toggle = document.querySelector('.menu-toggle');
-            if (window.innerWidth <= 768 && menu) {
-                menu.classList.remove('active');
-                if (toggle) toggle.innerHTML = '☰';
-            }
-        }
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            var menu = document.getElementById('navMenu');
-            var toggle = document.querySelector('.menu-toggle');
-            var navContainer = document.querySelector('.nav-container');
-            
-            if (window.innerWidth <= 768 && menu && toggle && navContainer) {
-                if (!navContainer.contains(event.target)) {
-                    menu.classList.remove('active');
-                    toggle.innerHTML = '☰';
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle Menu Function
+            window.toggleMenu = function() {
+                var menu = document.getElementById('navMenu');
+                var toggle = document.querySelector('.menu-toggle');
+                
+                if (menu && toggle) {
+                    if (menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                        toggle.innerHTML = '☰';
+                    } else {
+                        menu.classList.add('active');
+                        toggle.innerHTML = '✕';
+                    }
                 }
-            }
+            };
+
+            // Close menu when clicking on a link
+            window.closeMenu = function() {
+                var menu = document.getElementById('navMenu');
+                var toggle = document.querySelector('.menu-toggle');
+                if (window.innerWidth <= 768 && menu) {
+                    menu.classList.remove('active');
+                    if (toggle) toggle.innerHTML = '☰';
+                }
+            };
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                var menu = document.getElementById('navMenu');
+                var toggle = document.querySelector('.menu-toggle');
+                var navContainer = document.querySelector('.nav-container');
+                
+                if (window.innerWidth <= 768 && menu && toggle && navContainer) {
+                    if (!navContainer.contains(event.target)) {
+                        menu.classList.remove('active');
+                        toggle.innerHTML = '☰';
+                    }
+                }
+            });
         });
 
         // Header Background Slideshow
@@ -1137,20 +1142,22 @@
         function showHeaderSlides() {
             let headerSlides = document.getElementsByClassName("header-slide");
             
-            for (let i = 0; i < headerSlides.length; i++) {
-                headerSlides[i].classList.remove("active");
+            if (headerSlides.length > 0) {
+                for (let i = 0; i < headerSlides.length; i++) {
+                    headerSlides[i].classList.remove("active");
+                }
+                
+                headerSlideIndex++;
+                if (headerSlideIndex > headerSlides.length) {
+                    headerSlideIndex = 1;
+                }
+                
+                headerSlides[headerSlideIndex - 1].classList.add("active");
+                setTimeout(showHeaderSlides, 4000);
             }
-            
-            headerSlideIndex++;
-            if (headerSlideIndex > headerSlides.length) {
-                headerSlideIndex = 1;
-            }
-            
-            headerSlides[headerSlideIndex - 1].classList.add("active");
-            setTimeout(showHeaderSlides, 4000); // Change image every 4 seconds
         }
 
-        // Slideshow Functions
+        // Gallery Slideshow Functions
         let slideIndex = 0;
         let autoSlideTimer;
 
@@ -1158,49 +1165,53 @@
             let slides = document.getElementsByClassName("slide");
             let dots = document.getElementsByClassName("dot");
             
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
+            if (slides.length > 0 && dots.length > 0) {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove("active");
+                }
+                
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove("active");
+                }
+                
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }
+                
+                slides[slideIndex - 1].classList.add("active");
+                dots[slideIndex - 1].classList.add("active");
+                
+                autoSlideTimer = setTimeout(showSlides, 5000);
             }
-            
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            
-            slides[slideIndex - 1].classList.add("active");
-            dots[slideIndex - 1].classList.add("active");
-            
-            autoSlideTimer = setTimeout(showSlides, 5000);
         }
 
-        function currentSlide(n) {
+        window.currentSlide = function(n) {
             clearTimeout(autoSlideTimer);
             let slides = document.getElementsByClassName("slide");
             let dots = document.getElementsByClassName("dot");
             
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
+            if (slides.length > 0 && dots.length > 0) {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove("active");
+                }
+                
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove("active");
+                }
+                
+                slideIndex = n;
+                slides[slideIndex - 1].classList.add("active");
+                dots[slideIndex - 1].classList.add("active");
+                
+                autoSlideTimer = setTimeout(showSlides, 5000);
             }
-            
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            
-            slideIndex = n;
-            slides[slideIndex - 1].classList.add("active");
-            dots[slideIndex - 1].classList.add("active");
-            
-            autoSlideTimer = setTimeout(showSlides, 5000);
-        }
+        };
 
         // Start slideshows when page loads
-        window.addEventListener('load', () => {
-            showHeaderSlides(); // Start header slideshow
-            showSlides(); // Start gallery slideshow
+        window.addEventListener('load', function() {
+            showHeaderSlides();
+            showSlides();
         });
 
         // Section animations on scroll
@@ -1218,4 +1229,12 @@
         }, observerOptions);
 
         document.addEventListener('DOMContentLoaded', () => {
-            const sect
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.animationPlayState = 'paused';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
