@@ -165,6 +165,12 @@
             min-height: 50px;
         }
 
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+        }
+
         .menu-toggle {
             display: none;
             background: var(--wheat-gold);
@@ -203,28 +209,25 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
-                z-index: 1000;
+                z-index: 1001;
             }
 
             nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
                 flex-direction: column;
                 gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
                 background: rgba(255, 248, 220, 0.98);
                 border-radius: 12px;
-                margin-top: 3rem;
-                transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
-                position: relative;
-                z-index: 999;
+                margin: 0.5rem;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                display: none;
             }
 
             nav ul.active {
-                max-height: 800px !important;
-                opacity: 1 !important;
-                padding: 1rem 0;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                display: flex !important;
             }
 
             nav a {
@@ -1090,36 +1093,43 @@
 
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Toggle Menu Function
+        // Toggle Menu Function - Simplified
         function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.menu-toggle');
+            var menu = document.getElementById('navMenu');
+            var toggle = document.querySelector('.menu-toggle');
             
-            if (!menu || !toggle) {
-                console.error('Menu elements not found');
-                return;
-            }
-            
-            menu.classList.toggle('active');
-            console.log('Menu toggled, active:', menu.classList.contains('active'));
-            
-            // Change icon
             if (menu.classList.contains('active')) {
-                toggle.innerHTML = '✕';
-            } else {
+                menu.classList.remove('active');
                 toggle.innerHTML = '☰';
+            } else {
+                menu.classList.add('active');
+                toggle.innerHTML = '✕';
             }
         }
 
         // Close menu when clicking on a link
         function closeMenu() {
-            const menu = document.getElementById('navMenu');
-            const toggle = document.querySelector('.menu-toggle');
-            if (window.innerWidth <= 768) {
+            var menu = document.getElementById('navMenu');
+            var toggle = document.querySelector('.menu-toggle');
+            if (window.innerWidth <= 768 && menu) {
                 menu.classList.remove('active');
-                toggle.innerHTML = '☰';
+                if (toggle) toggle.innerHTML = '☰';
             }
         }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            var menu = document.getElementById('navMenu');
+            var toggle = document.querySelector('.menu-toggle');
+            var navContainer = document.querySelector('.nav-container');
+            
+            if (window.innerWidth <= 768 && menu && toggle && navContainer) {
+                if (!navContainer.contains(event.target)) {
+                    menu.classList.remove('active');
+                    toggle.innerHTML = '☰';
+                }
+            }
+        });
 
         // Header Background Slideshow
         let headerSlideIndex = 0;
