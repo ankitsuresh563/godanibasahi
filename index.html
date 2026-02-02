@@ -520,6 +520,32 @@
             margin: 0.5rem 0;
         }
 
+        /* Download Button Style */
+        .download-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--wheat-gold), var(--earth-brown));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--earth-brown), var(--wheat-gold));
+        }
+
+        .download-btn::before {
+            content: '📄 ';
+            margin-right: 0.5rem;
+        }
+
         footer {
             background: var(--earth-brown);
             color: white;
@@ -594,10 +620,10 @@
                 <li><a href="#info" onclick="closeMenu()">गाँव की जानकारी</a></li>
                 <li><a href="#gallery" onclick="closeMenu()">फोटो गैलरी </a></li>
                 <li><a href="#facilities" onclick="closeMenu()">सुविधाएं</a></li>
-                <li><a href="#online-services" onclick="closeMenu()">ऑनलाइन सुविधाएं</a></li>
-                <li><a href="#downloads" onclick="closeMenu()">डाउनलोड</a></li>
+                 <li><a href="#online-services" onclick="closeMenu()">ऑनलाइन सुविधाएं</a></li>
+                <li><a href="#downloads" onclick="closeMenu()"> डाउनलोड</a></li>
                 <li><a href="#development" onclick="closeMenu()">विकास</a></li>
-                <li><a href="notable-people.html">गाँव के मुख्य हस्तियां</a></li>
+                 <li><a href="notable-people.html"> गाँव के मुख्य हस्तियां</a></li>
                 <li><a href="#contact" onclick="closeMenu()">संपर्क</a></li>
             </ul>
         </div>
@@ -636,6 +662,7 @@
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 </section>
+
 
         <!-- ONLINE SERVICES SECTION -->
         <section id="online-services" style="
@@ -955,23 +982,9 @@
                     <a 
                         href="downloads/matdata-suchi-2003.pdf" 
                         download
-                        style="
-                            display: inline-block;
-                            padding: 1rem 2rem;
-                            background: linear-gradient(135deg, #DAA520, #8B4513);
-                            color: white;
-                            text-decoration: none;
-                            border-radius: 10px;
-                            font-weight: 600;
-                            font-size: 1.1rem;
-                            transition: all 0.3s ease;
-                            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                            margin: 0.5rem;
-                        "
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'"
+                        class="download-btn"
                     >
-                        📄 डाउनलोड करें
+                        डाउनलोड करें
                     </a>
                     <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
                         PDF फॉर्मेट में उपलब्ध
@@ -995,44 +1008,18 @@
                         <a 
                             href="downloads/sir-2026-draft-part1.pdf" 
                             download
-                            style="
-                                display: inline-block;
-                                padding: 1rem 2rem;
-                                background: linear-gradient(135deg, #DAA520, #8B4513);
-                                color: white;
-                                text-decoration: none;
-                                border-radius: 10px;
-                                font-weight: 600;
-                                font-size: 1.1rem;
-                                transition: all 0.3s ease;
-                                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                                margin: 0.5rem;
-                            "
-                            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'"
-                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'"
+                            class="download-btn"
+                            style="background: linear-gradient(135deg, #2F4F2F, #1A4D2E);"
                         >
-                            📄 सूची 1 डाउनलोड करें
+                            सूची 1 डाउनलोड करें
                         </a>
                         <a 
                             href="downloads/sir-2026-draft-part2.pdf" 
                             download
-                            style="
-                                display: inline-block;
-                                padding: 1rem 2rem;
-                                background: linear-gradient(135deg, #DAA520, #8B4513);
-                                color: white;
-                                text-decoration: none;
-                                border-radius: 10px;
-                                font-weight: 600;
-                                font-size: 1.1rem;
-                                transition: all 0.3s ease;
-                                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                                margin: 0.5rem;
-                            "
-                            onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.3)'"
-                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.2)'"
+                            class="download-btn"
+                            style="background: linear-gradient(135deg, #1A4D2E, #2F4F2F);"
                         >
-                            📄 सूची 2 डाउनलोड करें
+                            सूची 2 डाउनलोड करें
                         </a>
                     </div>
                     <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
@@ -1084,13 +1071,13 @@
             <h2>संपर्क जानकारी</h2>
             <div class="contact-info">
                 <h3>ग्राम प्रधान</h3>
-                <p style="font-size: 1.3rem; font-weight: 600; color: var(--wheat-gold); margin-bottom: 1rem;">सूरज कुमार गौतम</p>
+                <p style="font-size: 1.3rem; font-weight: 600; color: var(--wheat-gold); margin-bottom: 1rem;"> सूरज कुमार गौतम</p>
                 <p style="font-style: italic; margin-bottom: 2rem;">वर्तमान ग्राम प्रधान, गोदनी बसाही</p>
                 
                 <h3>गाँव से जुड़ें</h3>
-                <p>📧 ईमेल: <a href="/cdn-cgi/l/email-protection#e784888993868493a780888386898e858694868f8ec984888a" style="color: var(--wheat-gold); text-decoration: none;"><span class="__cf_email__" data-cfemail="6d0e0203190c0e192d0a02090c03040f0c1e0c0504430e0200">[email&#160;protected]</span></a></p>
-                <p>📞 ग्राम प्रधान कार्यालय: <a href="tel:+919839168011" style="color: var(--wheat-gold); text-decoration: none;">+91 98391 68011</a></p>
-                <p>📍 पता: ग्राम गोदनी बसाही, पोस्ट - आलिया बुल बुल, तहसील बहराइच, बहराइच, उत्तर प्रदेश</p>
+                <p> ईमेल: <a href="/cdn-cgi/l/email-protection#492e262d2827202b283a282120092e24282025672a2624" style="color: var(--wheat-gold); text-decoration: none;"><span class="__cf_email__" data-cfemail="94f3fbf0f5fafdf6f5e7f5fcfdd4f3f9f5fdf8baf7fbf9">[email&#160;protected]</span></a></p>
+                <p> ग्राम प्रधान कार्यालय: <a href="tel:+919839168011" style="color: var(--wheat-gold); text-decoration: none;">+91 98391 68011</a></p>
+                <p> पता: ग्राम गोदनी बसाही, पोस्ट - आलिया बुल बुल, तहसील बहराइच, बहराइच, उत्तर प्रदेश</p>
                 <p style="margin-top: 1.5rem; font-style: italic;">गाँव के विकास और प्रगति के लिए सभी ग्रामवासियों का सहयोग आवश्यक है। आइए, मिलकर अपने गाँव को और भी बेहतर बनाएं।</p>
             </div>
         </section>
@@ -1100,12 +1087,12 @@
         <p>&copy; 2026 ग्राम गोदनी बसाही | बहराइच, उत्तर प्रदेश</p>
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">हमारे गाँव की पहचान, हमारा गौरव</p>
         <p style="margin-top: 1rem; font-size: 0.95rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px;">
-            इस वेबसाइट को इसी गाँव के युवा <strong>अंकित गौतम (अभिषेक)</strong> ने बनाया है जो वर्तमान में <strong>नेशनल इंस्टीट्यूट ऑफ टेक्नोलॉजी (NIT) भोपाल, मध्य प्रदेश</strong> से अपनी इंजीनियरिंग कर रहे हैं।
+            इस वेबसाइट को इसी गाँव के युवा <strong>अंकित गौतम(अभिषेक)</strong> ने बनाया है जो वर्तमान में <strong>नेशनल इंस्टीट्यूट ऑफ टेक्नोलॉजी (NIT) भोपाल, मध्य प्रदेश</strong> से अपनी इंजीनियरिंग कर रहे हैं।
         </p>
     </footer>
 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Toggle Menu Function
@@ -1242,4 +1229,12 @@
         }, observerOptions);
 
         document.addEventListener('DOMContentLoaded', () => {
-            const 
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.animationPlayState = 'paused';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
