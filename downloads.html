@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>डाउनलोड - ग्राम गोदनी बसाही</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --earth-brown: #8B4513;
+            --wheat-gold: #DAA520;
+            --village-green: #2F4F2F;
+            --clay-orange: #E07A5F;
+            --sky-blue: #87CEEB;
+            --cream: #FFF8DC;
+            --terracotta: #D4745E;
+            --deep-green: #1A4D2E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hind', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #FAEBD7 100%);
+            color: #333;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(218, 165, 32, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(47, 79, 47, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--wheat-gold) 0%, var(--earth-brown) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--village-green);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--deep-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--wheat-gold), var(--earth-brown));
+            border-radius: 15px 15px 0 0;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .doc-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-family: 'Tiro Devanagari Hindi', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--earth-brown);
+        }
+
+        .info-card p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--wheat-gold), var(--earth-brown));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0.5rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, var(--earth-brown), var(--wheat-gold));
+        }
+
+        .download-btn::before {
+            content: '📄 ';
+            margin-right: 0.5rem;
+        }
+
+        .dual-download {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .notice-box {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(139, 69, 19, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--earth-brown);
+        }
+
+        .notice-box h4 {
+            color: var(--earth-brown);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .notice-box p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        footer {
+            background: var(--earth-brown);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dual-download {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📥 महत्वपूर्ण दस्तावेज़</h1>
+        <p class="subtitle">गाँव के महत्वपूर्ण दस्तावेज़ यहाँ से डाउनलोड करें</p>
+    </header>
+
+    <a href="index.html" class="back-link">⬅ मुख्य पृष्ठ पर वापस जाएं</a>
+
+    <div class="container">
+        <div class="info-grid">
+            <!-- Voter List 2003 -->
+            <div class="info-card">
+                <div class="doc-icon">📜</div>
+                <h3>मतदाता सूची 2003</h3>
+                <p>गोदनी बसाही की मतदाता सूची वर्ष 2003</p>
+                <a href="downloads/matdata-suchi-2003.pdf" download class="download-btn">
+                    डाउनलोड करें
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    PDF फॉर्मेट में उपलब्ध
+                </p>
+            </div>
+
+            <!-- SIR 2026 Draft -->
+            <div class="info-card">
+                <div class="doc-icon">📋</div>
+                <h3>SIR 2026 Draft सूची</h3>
+                <p>गोदनी बसाही की SIR 2026 Draft सूची (दो भागों में)</p>
+                <div class="dual-download">
+                    <a href="downloads/sir-2026-draft-part1.pdf" download class="download-btn">
+                        सूची 1
+                    </a>
+                    <a href="downloads/sir-2026-draft-part2.pdf" download class="download-btn">
+                        सूची 2
+                    </a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    दोनों PDF फॉर्मेट में उपलब्ध
+                </p>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <h4>ℹ️ डाउनलोड के बारे में</h4>
+            <p>
+                ये दस्तावेज़ गाँव के सभी निवासियों के लिए उपलब्ध हैं। डाउनलोड बटन पर क्लिक करने से फ़ाइल स्वतः डाउनलोड हो जाएगी। 
+                PDF फ़ाइल को खोलने के लिए आपके डिवाइस में PDF रीडर होना आवश्यक है। 
+                किसी भी समस्या के लिए ग्राम प्रधान कार्यालय से संपर्क करें।
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ग्राम गोदनी बसाही | बहराइच, उत्तर प्रदेश</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">हमारे गाँव की पहचान, हमारा गौरव</p>
+    </footer>
+</body>
+</html>
