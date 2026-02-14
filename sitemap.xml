@@ -3,12 +3,30 @@
 
    <url>
       <loc>https://www.godanibasahi.in/</loc>
+      <lastmod>2026-02-15</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
 
    <url>
       <loc>https://www.godanibasahi.in/notable-people.html</loc>
+      <lastmod>2026-02-15</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://www.godanibasahi.in/downloads.html</loc>
+      <lastmod>2026-02-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://www.godanibasahi.in/online-services.html</loc>
+      <lastmod>2026-02-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
    </url>
 
 </urlset>
